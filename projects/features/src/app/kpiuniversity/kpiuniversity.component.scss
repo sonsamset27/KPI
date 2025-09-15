@@ -1,0 +1,14 @@
+.kpiuniversity-container {
+  display: flex;
+  height: calc(100vh - 50px); /* trừ chiều cao top-bar (nếu top-bar = 50px) */
+  width: 100%;
+  overflow: hidden; /* tránh tràn viền */
+}
+
+
+.kpiuniversity-content {
+  flex: 1;
+  background: #f9fafc;
+  padding: 16px;
+  overflow-y: auto;
+}

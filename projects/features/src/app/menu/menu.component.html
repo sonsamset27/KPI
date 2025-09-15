@@ -1,0 +1,70 @@
+<div class="sidebar" [class.collapsed]="isCollapsed">
+  <!-- Header -->
+  <div class="sidebar-header">
+    <div class="left-header">
+      <i class="pi pi-bars"></i>
+      <span *ngIf="!isCollapsed" class="menu-title">Menu</span>
+    </div>
+    <button class="collapse-btn" (click)="toggleCollapse()">
+      <i class="pi" [ngClass]="isCollapsed ? 'pi-angle-right' : 'pi-angle-left'"></i>
+    </button>
+  </div>
+
+  <!-- Dashboard -->
+  <div 
+    class="menu-item" 
+    [class.active]="activeRoute === '/dashboard'" 
+    (click)="navigate('/dashboard')">
+    <i class="pi pi-th-large"></i>
+    <span *ngIf="!isCollapsed">Dashboard</span>
+  </div>
+
+  <!-- KPIs -->
+  <div class="menu-item-kpi" (click)="toggleKPIs()">
+    <div class="menu-item-content" >
+        <i class="pi pi-chart-line"></i>
+        <span *ngIf="!isCollapsed">KPIs</span>
+    </div>
+    <i *ngIf="!isCollapsed" class="pi" [ngClass]="openKPIs ? 'pi-chevron-down' : 'pi-chevron-right'"></i>
+  </div>
+
+  <!-- Submenu KPIs -->
+  <div class="submenu" *ngIf="openKPIs && !isCollapsed">
+    <div 
+      class="submenu-item" 
+      [class.active]="activeRoute === '/kpi/mykpi'" 
+      (click)="navigate('/kpi/mykpi')">
+      KPIs của tôi
+    </div>
+    <div 
+      class="submenu-item" 
+      [class.active]="activeRoute === '/kpi/university'" 
+      (click)="navigate('/kpi/university')">
+      Quản lý KPIs nhà trường
+    </div>
+    <div 
+      class="submenu-item" 
+      [class.active]="activeRoute === '/kpi/unit'" 
+      (click)="navigate('/kpi/unit')">
+      Quản lý KPIs đơn vị
+    </div>
+    <div 
+      class="submenu-item" 
+      [class.active]="activeRoute === '/kpi/personal'" 
+      (click)="navigate('/kpi/personal')">
+      Quản lý KPIs cá nhân
+    </div>
+    <div 
+      class="submenu-item" 
+      [class.active]="activeRoute === '/kpi/approve'" 
+      (click)="navigate('/kpi/approve')">
+      Xét duyệt
+    </div>
+    <div 
+      class="submenu-item" 
+      [class.active]="activeRoute === '/kpi/self'" 
+      (click)="navigate('/kpi/self')">
+      Tự đánh giá KPIs
+    </div>
+  </div>
+</div>

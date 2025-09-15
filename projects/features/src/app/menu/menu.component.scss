@@ -1,0 +1,149 @@
+.sidebar {
+  width: 220px;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  height: 100vh;
+  transition: width 0.3s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &.collapsed {
+    width: 60px;
+
+    .menu-title, span, .submenu {
+      display: none;
+      padding-left: 10px;
+    }
+
+    .collapse-btn {
+      margin-left: auto;
+      margin-right: auto;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0 10px;
+  font-weight: bold;
+  color: #007bff;
+  border-bottom: 1px solid #eee;
+
+  .left-header {
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+
+    i {
+      font-size: 18px;
+      margin-right: 6px;
+    }
+  }
+
+  .collapse-btn {
+    background: none;     
+    border: none;         
+    cursor: pointer;
+    font-size: 20px;          /* mũi tên to hơn */
+    color: #007bff;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.2s, color 0.2s;
+
+    i {
+        font-size: 20px;       /* icon rõ hơn */
+        font-weight: bold;
+    }
+
+    &:hover {
+        background: #e0e0e0;
+        transform: scale(1.1);
+        color: #0056b3;        /* xanh đậm khi hover */
+    }
+    }
+
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+  transition: background 0.2s;
+
+  i {
+    font-size: 18px;
+    margin-right: 10px;
+    padding-left: 5px;
+  }
+
+  &:hover {
+    background: #f0f0f0;
+  }
+
+  &.active {
+    color: #007bff;
+    font-weight: bold;
+  }
+}
+.menu-item-kpi {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+  transition: background 0.2s;
+  justify-content: space-between;
+
+  i {
+    font-size: 18px;
+    margin-right: 10px;
+    padding-left: 5px;
+  }
+
+  &:hover {
+    background: #f0f0f0;
+  }
+
+  &.active {
+    color: #007bff;
+    font-weight: bold;
+  }
+}
+
+.submenu {
+  padding: 0 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* khoảng cách giữa các ô */
+
+  .submenu-item {
+    background: #fff;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: #333;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+
+    &:hover {
+      background: #f5f7fa;
+    }
+
+    &.active {
+      background: #e9f1ff;
+      border-color: #2d7cff;
+      color: #2d7cff;
+      font-weight: 600;
+    }
+  }
+}
+

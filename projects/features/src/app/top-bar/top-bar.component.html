@@ -1,0 +1,28 @@
+<header class="top-bar">
+  <!-- Bên trái: Logo -->
+  <div class="top-bar__left">
+    <img src="../../assets/logohuce.png" alt="Trường Đại học Xây Dựng" class="top-bar__logo" />
+  </div>
+
+  <!-- Bên phải: User -->
+  <div class="top-bar__right" (click)="toggleMenu()">
+    <img src="../../assets/logouser.png" alt="User avatar" class="user-avatar" />
+    <div class="user-info">
+      <div class="user-name">Nguyen Van C</div>
+      <div class="user-role">Giảng Viên</div>
+    </div>
+    <img src="../../assets/drop.png" alt="dropdown icon" class="dropdown-icon" />
+
+    <!-- Dropdown menu -->
+    <div class="dropdown-menu" *ngIf="isMenuOpen">
+      <div class="dropdown-item">
+        <img src="../../assets/logoacc.png" alt="dropdown-icon" class="dropdown-icon-mini" />
+        <span>Tài khoản</span>
+      </div>
+      <div class="dropdown-item" (click)="logout()">
+        <img src="../../assets/logologout.png" alt="dropdown-icon" class="dropdown-icon-mini" />
+        <span>Đăng xuất</span>
+      </div>
+    </div>
+  </div>
+</header>
