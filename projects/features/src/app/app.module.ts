@@ -16,17 +16,6 @@ import { KpiselfComponent } from './kpiself/kpiself.component';
 import { KpiuniversityComponent } from './kpiuniversity/kpiuniversity.component';
 import { MykpiComponent } from './mykpi/mykpi.component'
 
-const routes:Routes = [
-  {path: '', redirectTo: 'auth/login', pathMatch: 'full' },
-  {path: 'auth/login',component:LoginFormComponent},
-  {path: 'dashboard',component:DashboardComponent},
-  {path: 'kpi/unit', component: KpiunitComponent },
-  {path: 'kpi/personal', component: KpipersonalComponent },
-  {path: 'kpi/approve', component: KpiapproveComponent },
-  {path: 'kpi/self', component: KpiselfComponent },
-  {path: 'kpi/university', component: KpiuniversityComponent },
-  {path: 'kpi/mykpi', component: MykpiComponent },
-]
 
 @NgModule({
   declarations: [
@@ -44,7 +33,6 @@ const routes:Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
     AppRoutingModule,
     FormsModule
 

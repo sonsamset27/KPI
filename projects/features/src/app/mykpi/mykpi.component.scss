@@ -1,14 +1,135 @@
-.mykpi-container {
-  display: flex;
-  height: calc(100vh - 50px); /* trừ chiều cao top-bar (nếu top-bar = 50px) */
-  width: 100%;
-  overflow: hidden; /* tránh tràn viền */
+:host {
+  display: block;
 }
 
+/* container chung */
+.mykpi-container {
+  display: flex;
+  height: calc(100vh - 50px); /* trừ topbar khoảng 50px */
+  width: 100%;
+  overflow: hidden;
+}
 
+/* nội dung phải (bên phải sidebar) */
 .mykpi-content {
   flex: 1;
-  background: #f9fafc;
   padding: 16px;
-  overflow-y: auto;
+  background: #f4f6f9;
+  display: flex;
+  flex-direction: column;
+}
+
+/* header + filters */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+
+  h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #1f325d;
+  }
+
+  .filters {
+    display: flex;
+    gap: 8px;
+
+    select {
+      padding: 6px 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background: white;
+    }
+  }
+}
+
+/* khung chứa bảng */
+.table-card {
+  border: 1px solid #cfcfcf;
+  border-radius: 6px;
+  background: white;
+  overflow: auto;
+  height: calc(100vh - 160px); /* điều chỉnh tùy header */
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03);
+}
+
+/* bảng */
+.kpi-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: 13px;
+  table-layout: fixed; /* cho cột ổn định */
+}
+
+/* header */
+.kpi-table thead th {
+  background: #2b7bd3; /* xanh giống ảnh */
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 8px;
+  border: 1px solid #d2d2d2;
+  text-align: center;
+  position: sticky; /* sticky khi scroll */
+  top: 0;
+  z-index: 5;
+}
+
+/* body cells */
+.kpi-table tbody td {
+  padding: 10px 8px;
+  border: 1px solid #dcdcdc;
+  vertical-align: top;
+  word-break: break-word;
+}
+
+/* căn chữ */
+.center {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+
+/* style phần header mỗi section */
+.section-header td {
+  background: #dbe9fb;
+  color: #1b3f7a;
+  font-weight: 700;
+  padding: 8px;
+  text-align: left;
+  border-top: 2px solid #a9c7f2;
+}
+
+/* hàng tổng từng phần */
+.total-row td {
+  background: #fafafa;
+  font-weight: 700;
+  border-top: 2px solid #cfcfcf;
+}
+
+/* hàng tổng cuối cùng */
+.grand-total td {
+  background: #ffe9c6;
+  font-weight: 800;
+  padding: 12px;
+  border-top: 3px solid #f0a64a;
+}
+
+/* font to hơn */
+.big {
+  font-size: 14px;
+}
+
+/* màu xen kẽ để dễ đọc */
+.kpi-table tbody tr:nth-child(even) td {
+  background: #ffffff;
+}
+.kpi-table tbody tr:nth-child(odd) td {
+  background: #fdfdfd;
 }

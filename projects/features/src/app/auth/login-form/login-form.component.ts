@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AppService } from '../../services/app.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,11 +12,11 @@ export class LoginFormComponent {
   password = '';
   error = '';
 
-  constructor(private authService: AuthService, private router: Router) {}
+  constructor(private appService: AppService, private router: Router) {}
 
   onSubmit(): void {
-    if (this.authService.login(this.username, this.password)) {
-      this.router.navigate(['/dashboard']);
+    if (this.appService.login(this.username, this.password)) {
+      this.router.navigate(['/dashboard']); // hoặc /mykpi nếu muốn
     } else {
       this.error = 'Tên đăng nhập hoặc mật khẩu không đúng!';
     }

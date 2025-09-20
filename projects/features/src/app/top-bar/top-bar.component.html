@@ -1,17 +1,17 @@
 <header class="top-bar">
-  <!-- Bên trái: Logo -->
   <div class="top-bar__left">
     <img src="../../assets/logohuce.png" alt="Trường Đại học Xây Dựng" class="top-bar__logo" />
   </div>
 
-  <!-- Bên phải: User -->
-  <div class="top-bar__right" (click)="toggleMenu()">
+  <div class="top-bar__right" [class.open]="isMenuOpen" (click)="toggleMenu()">
     <img src="../../assets/logouser.png" alt="User avatar" class="user-avatar" />
     <div class="user-info">
-      <div class="user-name">Nguyen Van C</div>
-      <div class="user-role">Giảng Viên</div>
+      <div class="user-name">{{ userName }}</div>
+      <div class="user-role">{{ userRole }}</div>
     </div>
-    <img src="../../assets/drop.png" alt="dropdown icon" class="dropdown-icon" />
+    <svg class="dropdown-icon" [class.open]="isMenuOpen" viewBox="0 0 24 24">
+      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
 
     <!-- Dropdown menu -->
     <div class="dropdown-menu" *ngIf="isMenuOpen">
